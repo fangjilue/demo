@@ -49,6 +49,8 @@
         <cglib.version>3.2.5</cglib.version>
         <aspectj.version>1.8.13</aspectj.version>
 
+        <mgzf-sdk.version>3.0.1-SNAPSHOT</mgzf-sdk.version>
+
     </properties>
 
     <dependencyManagement>
@@ -221,6 +223,13 @@
             <artifactId>powermock-api-mockito</artifactId>
             <version>1.7.4</version>
             <scope>test</scope>
+        </dependency>
+
+        <!--mgzf jar -->
+        <dependency>
+            <groupId>com.mgzf.sdk</groupId>
+            <artifactId>mgzf-sdk-cfgcenter</artifactId>
+            <version>${mgzf-sdk.version}</version>
         </dependency>
 
     </dependencies>

@@ -1,5 +1,6 @@
 package me.robbie.spring.demo;
 
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,6 +20,7 @@ import java.util.Arrays;
 //@ComponentScan
 @SpringBootApplication
 @ImportResource("classpath:META-INF/spring/context.xml")
+@EnableApolloConfig//apollo 配置注解
 public class Run {
 
     public static void main(String[] args) throws Exception {

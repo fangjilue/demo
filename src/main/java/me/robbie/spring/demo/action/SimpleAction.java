@@ -1,5 +1,7 @@
 package me.robbie.spring.demo.action;
 
+import me.robbie.spring.demo.config.ApolloAnnotationBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SimpleAction {
 
+    @Autowired
+    private ApolloAnnotationBean testApolloAnnotationBean;
+
+
     @RequestMapping("/")
     String index() {
-        return "Hello World!";
+
+        return "Hello World!" + testApolloAnnotationBean.getName();
     }
 }
