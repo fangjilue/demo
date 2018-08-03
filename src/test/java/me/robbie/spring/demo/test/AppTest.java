@@ -22,10 +22,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 /**
- * 不用单独启动应用直接测试 action
- *
- * @RunWith(SpringRunner.class) 等价于
- * @RunWith(SpringJUnit4ClassRunner.class)
+ * 不用单独启动web容器应用直接mock测试 controller
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Run.class)
