@@ -3,6 +3,7 @@ package me.robbie.spring.demo.test;
 import me.robbie.spring.demo.dao.StudentDao;
 import me.robbie.spring.demo.model.Student;
 import me.robbie.spring.demo.service.StudentService;
+import me.robbie.spring.demo.util.ValidatorUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +30,7 @@ import static org.mockito.Mockito.*;
  */
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({StudentService.class})//私有方法，静态方法对应的类，多个之间逗号隔开。
+@PrepareForTest({StudentService.class, ValidatorUtil.class})//私有方法，静态方法对应的类，多个之间逗号隔开。
 public class StudentServicePrivateTest {
 
     @Mock
@@ -63,6 +64,8 @@ public class StudentServicePrivateTest {
         when(studentDao.get(anyInt())).thenReturn(student);
         when(studentDao.get(1)).thenReturn(student1);
         when(studentDao.get(2)).thenReturn(student2);
+
+        doReturn(student2).when(studentDao).get(3);
 
         when(studentDao.save(anyObject())).thenReturn(100);
     }
@@ -112,6 +115,53 @@ public class StudentServicePrivateTest {
         Integer result = powerMock.save(student3);
 
         System.out.println("result ="+result);
+    }
+
+
+
+    @Test
+    public void testModify(){
+        Student student3 = new Student();
+        student3.setSex(0);
+        student3.setNo("NO.3");
+        student3.setName("mock3");
+        student3.setId(3);
+
+        Boolean result = studentService.modify(student3);
+
+        System.out.println("modify=" + result);
+    }
+
+    @Test
+    public void testModifyMockDao(){
+        Student student3 = new Student();
+        student3.setSex(0);
+        student3.setNo("NO.3");
+        student3.setName("mock3");
+        student3.setId(3);
+
+        when(studentDao.modify(anyObject())).thenReturn(true);
+
+        Boolean result = studentService.modify(student3);
+
+        System.out.println("modify=" + result);
+    }
+
+    @Test
+    public void testModifyMockDaoAndStatic() throws Exception {
+        Student student3 = new Student();
+        student3.setSex(0);
+        student3.setNo("NO.3");
+        student3.setName("mock3");
+        student3.setId(3);
+
+        when(studentDao.modify(anyObject())).thenReturn(true);
+
+        PowerMockito.mockStatic(ValidatorUtil.class);
+
+        Boolean result = studentService.modify(student3);
+
+        System.out.println("modify=" + result);
     }
 
 

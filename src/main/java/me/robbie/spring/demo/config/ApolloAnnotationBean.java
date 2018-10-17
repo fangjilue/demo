@@ -32,6 +32,7 @@ public class ApolloAnnotationBean {
         //update injected value of batch if it is changed in Apollo
         if (changeEvent.isChanged("tp.demo.name")) {
             name = config.getProperty("tp.demo.name", "100");
+            System.out.println("name====" + name);
         }
     }
 

@@ -2,6 +2,7 @@ package me.robbie.spring.demo.service;
 
 import me.robbie.spring.demo.dao.StudentDao;
 import me.robbie.spring.demo.model.Student;
+import me.robbie.spring.demo.util.ValidatorUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,20 +27,22 @@ public class StudentService {
     private StudentDao studentDao;
 
     public Integer save(Student student){
-        logger.debug("save...");
+        logger.debug("StudentService save...");
+
         Integer id = studentDao.save(student);
         return getId(id);
     }
 
 
     public boolean modify(Student student){
-        logger.debug("modify...");
+        logger.debug("StudentService modify...");
+        ValidatorUtil.validate(student);
 
         return studentDao.modify(student);
     }
 
     public Student get(Integer id){
-        logger.debug("get...");
+        logger.debug("StudentService get...");
 
         if(id == null){
             return null;
@@ -49,7 +52,7 @@ public class StudentService {
 
 
     private Integer getId(Integer id){
-        logger.debug("getId id ={}",id);
+        logger.debug("StudentService getId id ={}",id);
         return id +1;
     }
 

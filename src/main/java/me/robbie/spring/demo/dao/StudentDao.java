@@ -22,20 +22,20 @@ public class StudentDao {
     public static final Logger logger = LoggerFactory.getLogger(StudentDao.class);
 
     public Integer save(Student student) {
-        logger.debug("save student ={}",student);
+        logger.debug("StudentDao save student ={}",student);
 
         return 1;
     }
 
 
     public boolean modify(Student student) {
-        logger.debug("dao modify....");
+        logger.debug("StudentDao dao modify....");
         return true;
 
     }
 
     public Student get(Integer id) {
-        logger.debug("get student id={}", id);
+        logger.debug("StudentDao get student id={}", id);
 
         Student student = new Student();
         student.setClassId(1);
