@@ -1,9 +1,9 @@
 package me.robbie.spring.demo.config;
 
-import com.ctrip.framework.apollo.Config;
-import com.ctrip.framework.apollo.model.ConfigChangeEvent;
-import com.ctrip.framework.apollo.spring.annotation.ApolloConfig;
-import com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;
+//import com.ctrip.framework.apollo.Config;
+//import com.ctrip.framework.apollo.model.ConfigChangeEvent;
+//import com.ctrip.framework.apollo.spring.annotation.ApolloConfig;
+//import com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -20,21 +20,21 @@ import org.springframework.stereotype.Component;
 public class ApolloAnnotationBean {
 
 
-    @ApolloConfig
-    private Config config; //inject config for namespace application
+    //@ApolloConfig
+    //private Config config; //inject config for namespace application
 
     @Value("${tp.demo.name:100}")
     private String name;
 
     //config change listener for namespace application
-    @ApolloConfigChangeListener
+    /*@ApolloConfigChangeListener
     private void someOnChange(ConfigChangeEvent changeEvent) {
         //update injected value of batch if it is changed in Apollo
         if (changeEvent.isChanged("tp.demo.name")) {
             name = config.getProperty("tp.demo.name", "100");
             System.out.println("name====" + name);
         }
-    }
+    }*/
 
 
     public String getName() {

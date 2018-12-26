@@ -3,6 +3,7 @@ package me.robbie.spring.demo.action;
 import me.robbie.spring.demo.config.ApolloAnnotationBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,7 +22,7 @@ public class SimpleAction {
     private ApolloAnnotationBean testApolloAnnotationBean;
 
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/",method = RequestMethod.GET)
     String index() {
 
         return "Hello World!" + testApolloAnnotationBean.getName();

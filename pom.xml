@@ -51,6 +51,8 @@
 
         <mgzf-sdk.version>3.0.1-SNAPSHOT</mgzf-sdk.version>
 
+        <springfox-swagger2.version>2.7.0</springfox-swagger2.version>
+
     </properties>
 
     <dependencyManagement>
@@ -226,10 +228,22 @@
         </dependency>
 
         <!--mgzf jar -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.mgzf.sdk</groupId>
             <artifactId>mgzf-sdk-cfgcenter</artifactId>
             <version>${mgzf-sdk.version}</version>
+        </dependency>-->
+
+        <!-- swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger2.version}</version>
         </dependency>
 
     </dependencies>
