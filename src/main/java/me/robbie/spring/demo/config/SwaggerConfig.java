@@ -25,7 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-public class SwaggerConfig /*extends WebMvcConfigurerAdapter*/ {
+public class SwaggerConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public Docket categoryApi() {
@@ -50,16 +50,17 @@ public class SwaggerConfig /*extends WebMvcConfigurerAdapter*/ {
                 .build();
     }
 
-    /*@Override
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/**")
-                .addResourceLocations("classpath*:/static/");
+        /*registry.addResourceHandler("/**")
+                .addResourceLocations("classpath*:/static/");*/
+
         registry.addResourceHandler("/swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
         super.addResourceHandlers(registry);
-    }*/
+    }
 
 
 }
