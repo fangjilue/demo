@@ -52,8 +52,9 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        /*registry.addResourceHandler("/**")
-                .addResourceLocations("classpath*:/static/");*/
+        // 支持static 文件
+        registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:/static/");
 
         registry.addResourceHandler("/swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");

@@ -18,4 +18,29 @@
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
+    <!--
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${redis.maxIdle}" />
+        <property name="maxTotal" value="${redis.maxTotal}" />
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}" />
+        <property name="testOnBorrow" value="${redis.testOnBorrow}" />
+        <property name="minIdle" value="${redis.minIdle}"/>
+        <property name="testOnReturn" value="${redis.testOnReturn}"/>
+        <property name="testWhileIdle" value="${redis.testWhileIdle}"/>
+    </bean>
+
+    <bean id="jedisSentinelPool" class="redis.clients.jedis.JedisSentinelPool">
+        <constructor-arg name="masterName" value="${redis.masterName}"></constructor-arg>
+        <constructor-arg name="sentinels">
+            <set>
+                <value>${redis.host.a}</value>
+                <value>${redis.host.b}</value>
+                <value>${redis.host.c}</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg ref="jedisPoolConfig"></constructor-arg>
+        <constructor-arg name="password" value="#{'${redis.password}'?:null}"></constructor-arg>
+    </bean>
+    -->
+
 </beans>
