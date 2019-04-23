@@ -42,7 +42,8 @@ public class App2Test {
 
     @Test
     public void testIndex() throws Exception{
-
+        ResponseEntity<String> entity = restTemplate.getForEntity(this.base.toString() +"/",String.class);
+        System.out.println(entity.getBody());
     }
 
 

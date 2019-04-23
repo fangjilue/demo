@@ -252,6 +252,12 @@
             <version>2.10.2</version>
         </dependency>
 
+        <!-- spring freemarker 开始 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <!-- spring freemarker 结束 -->
 
     </dependencies>
 

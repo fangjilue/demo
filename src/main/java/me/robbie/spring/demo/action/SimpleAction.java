@@ -25,6 +25,6 @@ public class SimpleAction {
     @RequestMapping(value = "/",method = RequestMethod.GET)
     String index() {
 
-        return "Hello World!" + testApolloAnnotationBean.getName();
+        return "Hello World!" + testApolloAnnotationBean.getName() +"," + testApolloAnnotationBean.getPort();
     }
 }

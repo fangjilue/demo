@@ -26,6 +26,9 @@ public class ApolloAnnotationBean {
     @Value("${tp.demo.name:100}")
     private String name;
 
+    @Value("${server.port}")
+    private String port;
+
     //config change listener for namespace application
     /*@ApolloConfigChangeListener
     private void someOnChange(ConfigChangeEvent changeEvent) {
@@ -39,5 +42,9 @@ public class ApolloAnnotationBean {
 
     public String getName() {
         return name;
+    }
+
+    public String getPort(){
+        return port;
     }
 }
