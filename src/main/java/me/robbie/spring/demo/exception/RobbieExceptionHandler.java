@@ -61,8 +61,8 @@ public class RobbieExceptionHandler {
         return responseBody;
     }
 
-    @ResponseBody
-    @ExceptionHandler({NoHandlerFoundException.class})
+    //@ResponseBody
+    //@ExceptionHandler({NoHandlerFoundException.class})
     public RobbieResponse handleHttpRequestMethodNotSupportedException(NoHandlerFoundException e) {
         RobbieResponse responseBody = RobbieResponse.bulidErrorResponseBody(ErrorCode.newUnknownError(e.getMessage()), e.getMessage());
         responseBody.setMessage("访问路径非法");
@@ -85,8 +85,9 @@ public class RobbieExceptionHandler {
         return RobbieResponse.bulidExceptionResponseBody(e, e.getMessage());
     }
 
-    @ResponseBody
-    @ExceptionHandler({Exception.class})
+    //交给spring 默认处理：可以内容协商进行 html, json
+   // @ResponseBody
+   // @ExceptionHandler({Exception.class})
     public RobbieResponse handleException(Exception e) {
         return bulidExceptionResponseBody(ErrorCode.newUnknownError(e.getMessage()), e);
     }
